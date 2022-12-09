@@ -15,13 +15,10 @@ function App() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    let mounted = true;
     getAPIData().then((items) => {
-      if (mounted) { 
-        setArticles(items);
-      }
+      setArticles(items);
     });
-    return () => (mounted = false);
+    return;
   }, []);
 
   return (
